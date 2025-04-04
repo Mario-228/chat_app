@@ -13,9 +13,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer Service Realtime Chat',
-      theme: ThemeData(
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.purple,
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
       ),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.purple,
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true,
+      ),
+      themeMode: ThemeMode.light,
       home: const LoginView(),
     );
   }
