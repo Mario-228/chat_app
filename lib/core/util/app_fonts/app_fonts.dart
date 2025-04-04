@@ -42,4 +42,9 @@ abstract class AppFonts {
     fontFamily: 'Lufga',
     fontWeight: FontWeight.w700,
   );
+  static const TextStyle textStyleBold36 = TextStyle(
+    fontSize: 40,
+    fontFamily: 'Lufga',
+    fontWeight: FontWeight.w700,
+  );
 }
