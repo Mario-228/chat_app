@@ -6,21 +6,18 @@ import 'package:go_router/go_router.dart';
 abstract class AppRouter {
   static const String kforgetPasswordView = "/forgetPasswordView";
   static const kRegisterView = '/register-view';
-  static final routers = GoRouter(
-    routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const LoginView(),
-      ),
-      GoRoute(
-        path: kforgetPasswordView,
-        builder: (context, state) => const ForgetPasswordView(),
-        ),
-      GoRoute(
-        path: kRegisterView,
-        builder: (context, state) => const RegisterView(),
-        ),
-      ),
-    ],
-  );
+  static final routers = GoRouter(routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const LoginView(),
+    ),
+    GoRoute(
+      path: kforgetPasswordView,
+      builder: (context, state) => const ForgetPasswordView(),
+    ),
+    GoRoute(
+      path: kRegisterView,
+      builder: (context, state) => const RegisterView(),
+    ),
+  ]);
 }

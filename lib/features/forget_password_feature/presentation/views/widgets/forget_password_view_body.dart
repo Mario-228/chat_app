@@ -36,7 +36,6 @@ class ForgetPasswordViewBody extends StatelessWidget {
                   SizedBox(height: 40.0),
                   CustomMaterialButton(
                     text: "Send",
-                    color: Colors.blue,
                     onPressed: () {
                       if (formKey.currentState!.validate()) {}
                     },
