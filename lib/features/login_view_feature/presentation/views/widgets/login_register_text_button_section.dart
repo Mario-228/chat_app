@@ -1,5 +1,7 @@
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
+import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginRegisterTextButtonSection extends StatelessWidget {
   const LoginRegisterTextButtonSection({
@@ -16,7 +18,8 @@ class LoginRegisterTextButtonSection extends StatelessWidget {
         ),
         TextButton(
           child: Text("Register", style: AppFonts.textStyleMostBold18),
-          onPressed: () {},
+          onPressed: () async =>
+              await GoRouter.of(context).push(AppRouter.kRegisterView),
         ),
       ],
     );
