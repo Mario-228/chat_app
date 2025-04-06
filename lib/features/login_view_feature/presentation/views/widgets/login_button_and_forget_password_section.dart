@@ -19,7 +19,6 @@ class LoginButtonAndForgetPasswordSection extends StatelessWidget {
         Expanded(
           child: CustomMaterialButton(
             text: "Log in",
-            color: Colors.blue,
             onPressed: () {
               if (formKey.currentState!.validate()) {}
             },
