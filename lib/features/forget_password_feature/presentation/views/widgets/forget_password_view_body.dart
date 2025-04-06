@@ -1,7 +1,9 @@
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
+import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgetPasswordViewBody extends StatelessWidget {
   const ForgetPasswordViewBody({super.key});
@@ -36,8 +38,11 @@ class ForgetPasswordViewBody extends StatelessWidget {
                   SizedBox(height: 40.0),
                   CustomMaterialButton(
                     text: "Send",
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {}
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        await GoRouter.of(context)
+                            .push(AppRouter.kResetPasswordView);
+                      }
                     },
                   ),
                 ],
