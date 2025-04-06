@@ -12,40 +12,43 @@ class ForgetPasswordViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     GlobalKey<FormState> formKey = GlobalKey<FormState>();
     TextEditingController emailController = TextEditingController();
-    return SizedBox(
-      width: double.infinity,
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Form(
-            key: formKey,
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Forget Password",
-                    style: AppFonts.textStyleBold36,
-                  ),
-                  SizedBox(height: 20.0),
-                  CustomTextFormField(
-                    type: TextInputType.emailAddress,
-                    labelText: "Email Address",
-                    controller: emailController,
-                    validator: "Enter your email address",
-                  ),
-                  SizedBox(height: 40.0),
-                  CustomMaterialButton(
-                    text: "Send",
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        await GoRouter.of(context)
-                            .push(AppRouter.kResetPasswordView);
-                      }
-                    },
-                  ),
-                ],
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: SizedBox(
+        width: double.infinity,
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Form(
+              key: formKey,
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Forget Password",
+                      style: AppFonts.textStyleBold36,
+                    ),
+                    SizedBox(height: 20.0),
+                    CustomTextFormField(
+                      type: TextInputType.emailAddress,
+                      labelText: "Email Address",
+                      controller: emailController,
+                      validator: "Enter your email address",
+                    ),
+                    SizedBox(height: 40.0),
+                    CustomMaterialButton(
+                      text: "Send",
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          await GoRouter.of(context)
+                              .push(AppRouter.kResetPasswordView);
+                        }
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
