@@ -1,3 +1,4 @@
+import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_text_form_field.dart';
 import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/views/widgets/reset_password_view_body.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class ResetPasswordTextFormFieldsSection extends StatelessWidget {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: OtpTextField(
+            textStyle:
+                AppFonts.textStyleSemiBold20.copyWith(color: Colors.black),
             numberOfFields: 6,
             keyboardType: TextInputType.number,
             filled: true,

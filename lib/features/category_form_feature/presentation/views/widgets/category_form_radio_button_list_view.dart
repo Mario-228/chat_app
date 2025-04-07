@@ -9,9 +9,12 @@ class CategorySelectionRadioButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GroupButtonController controller = GroupButtonController();
+    controller.selectIndex(3);
     return Column(
       children: [
         GroupButton(
+          controller: controller,
           buttonBuilder: (selected, value, context) {
             return Row(
               children: [

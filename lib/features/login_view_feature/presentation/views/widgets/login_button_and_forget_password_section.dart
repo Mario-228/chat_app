@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
@@ -21,7 +23,11 @@ class LoginButtonAndForgetPasswordSection extends StatelessWidget {
             text: "Log in",
             onPressed: () async {
               if (formKey.currentState!.validate()) {
-                await GoRouter.of(context).push(AppRouter.kCategoryFormView);
+                FocusScope.of(context).unfocus();
+
+                Timer(Duration(milliseconds: 70), () async {
+                  await GoRouter.of(context).push(AppRouter.kCategoryFormView);
+                });
               }
             },
           ),
@@ -31,7 +37,7 @@ class LoginButtonAndForgetPasswordSection extends StatelessWidget {
           child: TextButton(
             child: Text("Forgot Password", style: AppFonts.textStyleMostBold18),
             onPressed: () async =>
-                await GoRouter.of(context).push(AppRouter.kchatView),
+                await GoRouter.of(context).push(AppRouter.kforgetPasswordView),
           ),
         ),
       ],
