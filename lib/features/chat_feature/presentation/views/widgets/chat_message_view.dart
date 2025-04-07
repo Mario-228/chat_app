@@ -12,7 +12,7 @@ class ChatMessageView extends StatelessWidget {
     bool isSender = index % 2 == 0;
     return BubbleSpecialThree(
       text: "PlaceHolderData $index",
-      tail: isSender,
+      tail: true,
       isSender: isSender,
       color: isSender
           ? Color.fromARGB(100, 63, 135, 255)
