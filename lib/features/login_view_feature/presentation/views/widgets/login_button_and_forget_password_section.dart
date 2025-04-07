@@ -19,8 +19,10 @@ class LoginButtonAndForgetPasswordSection extends StatelessWidget {
         Expanded(
           child: CustomMaterialButton(
             text: "Log in",
-            onPressed: () {
-              if (formKey.currentState!.validate()) {}
+            onPressed: () async {
+              if (formKey.currentState!.validate()) {
+                await GoRouter.of(context).push(AppRouter.kCategoryFormView);
+              }
             },
           ),
         ),
