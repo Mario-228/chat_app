@@ -3,7 +3,7 @@ import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dar
 import 'package:flutter/material.dart';
 
 class ChatMessageView extends StatelessWidget {
-  ChatMessageView({super.key, required this.index});
+  const ChatMessageView({super.key, required this.index});
   final int index;
   //the index is for displaying the message from left or right
 

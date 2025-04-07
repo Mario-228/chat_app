@@ -21,8 +21,9 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       children: [
         Expanded(
           child: ListView.separated(
+              reverse: true,
               itemBuilder: (context, index) => ChatMessageView(
-                    index: index,
+                    index: 50 - index,
                   ),
               separatorBuilder: (context, index) => SizedBox(height: 10),
               itemCount: 50),
