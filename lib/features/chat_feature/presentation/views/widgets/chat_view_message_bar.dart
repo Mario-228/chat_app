@@ -9,7 +9,7 @@ class ChatViewMessageBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: CustomMaterialButton(text: "send"),
+      child: Container(width: 20, child: SizedBox()),
       onTap: () {},
     );
   }
