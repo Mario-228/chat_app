@@ -2,12 +2,14 @@ import 'package:customer_service_realtime_chat/features/forget_password_feature/
 import 'package:customer_service_realtime_chat/features/login_view_feature/presentation/views/login_view.dart';
 import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views/register_view.dart';
 import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/views/reset_password_view.dart';
+import 'package:customer_service_realtime_chat/features/ticket_form_feature/presentation/views/ticket_form_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const String kforgetPasswordView = "/forgetPasswordView";
   static const String kRegisterView = '/register-view';
   static const String kResetPasswordView = '/reset-password-view';
+  static const String kTicketFormView = "/TicketFormView";
   static final routers = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -24,6 +26,10 @@ abstract class AppRouter {
     GoRoute(
       path: kResetPasswordView,
       builder: (context, state) => const ResetPasswordView(),
+    ),
+    GoRoute(
+      path: kTicketFormView,
+      builder: (context, state) => const TicketFormView(),
     ),
   ]);
 }
