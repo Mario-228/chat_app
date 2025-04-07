@@ -8,7 +8,7 @@ class ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(title: ""),
+      appBar: CustomAppbar(title: "Chat "),
       body: ChatViewBody(),
     );
   }
