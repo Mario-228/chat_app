@@ -31,7 +31,7 @@ class LoginButtonAndForgetPasswordSection extends StatelessWidget {
           child: TextButton(
             child: Text("Forgot Password", style: AppFonts.textStyleMostBold18),
             onPressed: () async =>
-                await GoRouter.of(context).push(AppRouter.kforgetPasswordView),
+                await GoRouter.of(context).push(AppRouter.kchatView),
           ),
         ),
       ],

@@ -1,0 +1,2 @@
+E:/code Projects/software_cancer/chat_app/android/app/.cxx/Debug/4l5cf442/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/code Projects/software_cancer/chat_app/android/app/.cxx/Debug/4l5cf442/armeabi-v7a/CMakeFiles/rebuild_cache.dir
