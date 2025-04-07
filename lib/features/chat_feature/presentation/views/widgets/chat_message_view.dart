@@ -11,7 +11,7 @@ class ChatMessageView extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isSender = index % 2 == 0;
     return BubbleSpecialThree(
-      text: "placeHolderData",
+      text: "PlaceHolderData $index",
       tail: isSender,
       isSender: isSender,
       color: isSender
