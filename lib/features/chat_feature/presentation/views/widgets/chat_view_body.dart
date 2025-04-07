@@ -14,7 +14,9 @@ class _ChatViewBodyState extends State<ChatViewBody> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-        itemBuilder: (context, index) => ChatMessageView(),
+        itemBuilder: (context, index) => ChatMessageView(
+              index: index,
+            ),
         separatorBuilder: (context, index) => SizedBox(height: 10),
         itemCount: 5);
   }
