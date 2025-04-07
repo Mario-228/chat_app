@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:chat_bubbles/message_bars/message_bar.dart';
+import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/widgets/chat_message_view.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/widgets/chat_view_message_bar.dart';
 import 'package:flutter/material.dart';
@@ -26,10 +27,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
               separatorBuilder: (context, index) => SizedBox(height: 10),
               itemCount: 50),
         ),
-        MessageBar(
-          onSend: (_) {},
-          actions: [ChatViewMessageBar()],
-        )
+        ChatViewMessageBar(),
       ],
     ));
   }
