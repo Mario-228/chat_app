@@ -17,6 +17,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       children: [
         Expanded(
           child: ListView.separated(
+              physics: const BouncingScrollPhysics(),
               reverse: true,
               itemBuilder: (context, index) => ChatMessageView(
                     index: 50 - index,
