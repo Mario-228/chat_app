@@ -1,4 +1,3 @@
-import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_appbar.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
@@ -7,7 +6,6 @@ import 'package:customer_service_realtime_chat/features/category_form_feature/pr
 import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views/widgets/category_form_radio_button_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:group_button/group_button.dart';
 
 class CategoryFormView extends StatefulWidget {
   const CategoryFormView({super.key});
