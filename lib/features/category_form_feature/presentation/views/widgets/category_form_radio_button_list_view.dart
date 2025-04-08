@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
@@ -55,7 +57,7 @@ class CategorySelectionRadioButton extends StatelessWidget {
             "Billing issue",
             "Other"
           ],
-          onSelected: (value, index, isSelected) => print(value),
+          onSelected: (value, index, isSelected) => log(value),
           isRadio: true,
         )
       ],

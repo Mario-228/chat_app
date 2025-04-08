@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_text_form_field.dart';
 import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/views/widgets/reset_password_view_body.dart';
@@ -29,7 +31,7 @@ class ResetPasswordTextFormFieldsSection extends StatelessWidget {
               ResetPasswordViewBody.otp = value;
             },
             onSubmit: (String verificationCode) {
-              print(verificationCode);
+              log(verificationCode);
               ResetPasswordViewBody.otp = verificationCode;
             },
           ),
