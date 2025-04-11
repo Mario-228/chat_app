@@ -1,6 +1,7 @@
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
-import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
+import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views/widgets/register_button_bloc_consumer.dart';
 import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views/widgets/register_text_form_fields_section.dart';
+import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views_models/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 
 class RegisterViewBody extends StatelessWidget {
@@ -8,10 +9,6 @@ class RegisterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-    TextEditingController nameController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SizedBox(
@@ -20,7 +17,7 @@ class RegisterViewBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Form(
-              key: formKey,
+              key: RegisterCubit.get(context).formKey,
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
@@ -32,15 +29,14 @@ class RegisterViewBody extends StatelessWidget {
                     ),
                     SizedBox(height: 20.0),
                     RegisterTextFormFieldsSection(
-                        nameController: nameController,
-                        emailController: emailController,
-                        passwordController: passwordController),
+                        nameController:
+                            RegisterCubit.get(context).nameController,
+                        emailController:
+                            RegisterCubit.get(context).emailController,
+                        passwordController:
+                            RegisterCubit.get(context).passwordController),
                     SizedBox(height: 40.0),
-                    CustomMaterialButton(
-                        text: "Register",
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {}
-                        })
+                    RegisterButtonBlocConsumer()
                   ],
                 ),
               ),
