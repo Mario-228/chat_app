@@ -38,14 +38,15 @@ class ServerError extends Errors {
     }
   }
 
-  static ServerError badResponseError(int? statusCode, String response) {
+  static ServerError badResponseError(
+      int? statusCode, Map<String, dynamic> response) {
     switch (statusCode) {
       case 400:
-        return ServerError(errorMessage: response);
+        return ServerError(errorMessage: response['message']);
       case 401:
-        return ServerError(errorMessage: response);
+        return ServerError(errorMessage: response['message']);
       case 403:
-        return ServerError(errorMessage: response);
+        return ServerError(errorMessage: response['message']);
       case 404:
         return ServerError(
             errorMessage: "Requested not found , please try again later ...");
