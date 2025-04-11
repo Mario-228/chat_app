@@ -1,7 +1,12 @@
 import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  await Supabase.initialize(
+    url: 'https://xyzcompany.supabase.co',
+    anonKey: 'public-anon-key',
+  );
   runApp(const MyApp());
 }
 
