@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:customer_service_realtime_chat/core/errors/errors.dart';
 import 'package:customer_service_realtime_chat/core/util/api_services/api_services.dart';
 import 'package:customer_service_realtime_chat/core/util/api_services/base_url.dart';
@@ -12,6 +14,7 @@ class RegisterRepoImplementations implements RegisterRepo {
   Future<Either<Errors, void>> registerUser(
       {required RegisterInputModel registerInputModel}) async {
     try {
+      log("from repo ${registerInputModel.toJson()}");
       await ApiService(BaseUrl.api)
           .postData(RegisterEndPoints.register, registerInputModel.toJson());
       return right(null);

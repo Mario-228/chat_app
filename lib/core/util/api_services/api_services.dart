@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 class ApiService {
@@ -15,7 +17,7 @@ class ApiService {
       String endPoint, Map<String, dynamic> query) async {
     var response = await dioHelper.post(
       endPoint,
-      queryParameters: query,
+      data: jsonEncode(query),
       options: Options(headers: {'ngrok-skip-browser-warning': 'true'}),
     );
     return response.data;

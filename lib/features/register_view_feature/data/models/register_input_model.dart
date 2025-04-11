@@ -11,6 +11,5 @@ class RegisterInputModel {
         "Email": email,
         "Password": password,
         "ConfirmPassword": password,
-        "Phone": "01000000000"
       };
 }
