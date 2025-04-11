@@ -65,6 +65,9 @@ class LoginButtonBlocConsumer extends StatelessWidget {
                   password: LoginCubit.get(context).passwordController.text,
                 );
                 await LoginCubit.get(context).login(loginInputModel);
+                if (context.mounted) {
+                  clearLoginForm(context);
+                }
               }
             },
           );
@@ -76,5 +79,10 @@ class LoginButtonBlocConsumer extends StatelessWidget {
   void onLoginSuccess(BuildContext context) {
     showSnackBar(context, message: "Login Successfully");
     GoRouter.of(context).pushReplacement(AppRouter.kCategoryFormView);
+  }
+
+  void clearLoginForm(BuildContext context) {
+    LoginCubit.get(context).emailController.clear();
+    LoginCubit.get(context).passwordController.clear();
   }
 }
