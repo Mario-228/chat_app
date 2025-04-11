@@ -1,7 +1,7 @@
 import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
