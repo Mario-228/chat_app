@@ -1,4 +1,5 @@
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/chat_view.dart';
+import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/email_verification_view.dart';
 import 'package:customer_service_realtime_chat/features/forget_password_feature/presentation/views/forget_password_view.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/presentation/views/login_view.dart';
 import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views/register_view.dart';
@@ -12,6 +13,7 @@ abstract class AppRouter {
   static const String kResetPasswordView = '/reset-password-view';
   static const String kchatView = "/chat_view";
   static const String kCategoryFormView = "/category-form-view";
+  static const String kEmailVerificationView = "/email-verification-view";
 
   static final routers = GoRouter(routes: [
     GoRoute(
@@ -37,6 +39,10 @@ abstract class AppRouter {
     GoRoute(
       path: kCategoryFormView,
       builder: (context, state) => const CategoryFormView(),
+    ),
+    GoRoute(
+      path: kEmailVerificationView,
+      builder: (context, state) => const EmailVerificationView(),
     ),
   ]);
 }
