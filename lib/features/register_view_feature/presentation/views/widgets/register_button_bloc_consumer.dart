@@ -22,6 +22,9 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
           await onRegisterSuccess(context);
         } else if (state is RegisterError) {
           showSnackBar(context, message: state.message);
+          if (state.message.contains("Please Go to RegisterConfirm")) {
+            GoRouter.of(context).push(AppRouter.kEmailVerificationView);
+          }
         }
       },
       builder: (context, states) {
@@ -37,10 +40,7 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
                   email: RegisterCubit.get(context).emailController.text,
                   password: RegisterCubit.get(context).passwordController.text,
                 );
-                RegisterCubit.get(context).register(
-                  registerInputModel,
-                );
-                print(registerInputModel.toJson());
+                RegisterCubit.get(context).register(registerInputModel);
               }
             },
           );
@@ -51,6 +51,6 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
 
   Future<void> onRegisterSuccess(BuildContext context) async {
     showSnackBar(context, message: "Register Success");
-    await GoRouter.of(context).pushReplacement(AppRouter.kCategoryFormView);
+    await GoRouter.of(context).push(AppRouter.kEmailVerificationView);
   }
 }
