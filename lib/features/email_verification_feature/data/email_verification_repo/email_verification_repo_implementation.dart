@@ -39,7 +39,7 @@ class EmailVerificationRepoImplementation implements EmailVerificationRepo {
   Future<Either<Errors, void>> verifyOTP({required String otp}) async {
     try {
       await ApiService(BaseUrl.api)
-          .get("${EmailVerificationEndPoints.sendOTP}/$otp");
+          .get(EmailVerificationEndPoints.verifyOTP + otp);
       return Right(null);
     } on Exception catch (e) {
       if (e is DioException) {
