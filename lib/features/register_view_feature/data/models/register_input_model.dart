@@ -7,9 +7,10 @@ class RegisterInputModel {
       {required this.name, required this.email, required this.password});
 
   Map<String, dynamic> toJson() => {
-        "name": name,
-        "email": email,
-        "password": password,
+        "Name": name,
+        "Email": email,
+        "Password": password,
         "ConfirmPassword": password,
+        "Phone": "01000000000"
       };
 }

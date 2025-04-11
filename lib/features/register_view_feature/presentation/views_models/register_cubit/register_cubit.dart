@@ -8,7 +8,10 @@ class RegisterCubit extends Cubit<RegisterStates> {
   RegisterCubit() : super(RegisterInitial());
 
   static RegisterCubit get(BuildContext context) => BlocProvider.of(context);
-
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
   Future<void> register(RegisterInputModel model) async {
     emit(RegisterLoading());
     var response = await RegisterRepoImplementations()
