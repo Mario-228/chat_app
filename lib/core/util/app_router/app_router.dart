@@ -1,3 +1,4 @@
+import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views_models/logout_cubit/logout_cubit.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/chat_view.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views/email_verification_view.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views_models/verification_cubit/verification_cubit.dart';
@@ -49,7 +50,10 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kCategoryFormView,
-      builder: (context, state) => const CategoryFormView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => LogoutCubit(),
+        child: const CategoryFormView(),
+      ),
     ),
     GoRoute(
       path: kEmailVerificationView,

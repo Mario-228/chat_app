@@ -1,6 +1,7 @@
 import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_appbar.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
+import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views/widgets/logout_bloc_consumer_button.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views/widgets/primary_introcuction_text.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views/widgets/secoundary_introcuction_text.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views/widgets/category_form_radio_button_list_view.dart';
@@ -36,10 +37,7 @@ class _CategoryFormViewState extends State<CategoryFormView> {
               },
             ),
             SizedBox(height: 20),
-            CustomMaterialButton(
-              text: "Logout",
-              onPressed: () async {},
-            )
+            LogoutBlocConsumerButton()
           ],
         ),
       ),
