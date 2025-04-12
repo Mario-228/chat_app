@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:customer_service_realtime_chat/core/errors/errors.dart';
 import 'package:customer_service_realtime_chat/core/util/api_services/api_services.dart';
 import 'package:customer_service_realtime_chat/core/util/api_services/base_url.dart';
@@ -10,8 +12,9 @@ class EmailVerificationRepoImplementation implements EmailVerificationRepo {
   @override
   Future<Either<Errors, void>> resendOTP({required String email}) async {
     try {
-      await ApiService(BaseUrl.api)
-          .postOTP(EmailVerificationEndPoints.resendOTP, data: email);
+      await ApiService(BaseUrl.api).postOTP(
+          EmailVerificationEndPoints.resendOTP,
+          data: jsonEncode(email));
       return right(null);
     } on Exception catch (e) {
       if (e is DioException) {

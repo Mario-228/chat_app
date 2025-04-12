@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:customer_service_realtime_chat/features/email_verification_feature/data/email_verification_repo/email_verification_repo_implementation.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views_models/verification_cubit/verification_states.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,10 @@ class VerificationCubit extends Cubit<VerificationStates> {
 
   static VerificationCubit get(BuildContext context) =>
       BlocProvider.of(context);
-
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  String otp = "";
   Future<void> sendVerification({required String email}) async {
+    log(email);
     emit(SendVerificationLoading());
     var response =
         await EmailVerificationRepoImplementation().sendOTP(email: email);

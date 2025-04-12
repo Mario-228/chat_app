@@ -1,16 +1,17 @@
+import 'dart:developer';
+
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
-import 'package:customer_service_realtime_chat/core/util/functions/show_snack_bar.dart';
-import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views/widgets/email_verification_otp_field.dart';
+import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views/widgets/send_email_verification_bloc_consumer.dart';
+import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views_models/verification_cubit/verification_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class EmailVerificationViewBody extends StatelessWidget {
-  const EmailVerificationViewBody({super.key});
-
+  const EmailVerificationViewBody({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
-    GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    log(email);
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SizedBox(
@@ -19,7 +20,7 @@ class EmailVerificationViewBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Form(
-              key: formKey,
+              key: VerificationCubit.get(context).formKey,
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
@@ -30,21 +31,9 @@ class EmailVerificationViewBody extends StatelessWidget {
                       style: AppFonts.textStyleBold36,
                     ),
                     SizedBox(height: 20.0),
-                    EmailVerificationOTPField(),
+                    EmailVerificationOTPField(email: email),
                     SizedBox(height: 20.0),
-                    CustomMaterialButton(
-                      text: "Send OTP",
-                      onPressed: () async {
-                        if (EmailVerificationOTPField.otp.isEmpty ||
-                            EmailVerificationOTPField.otp.length < 6) {
-                          showSnackBar(context, message: 'Please Enter OTP');
-                          return;
-                        }
-                        if (formKey.currentState!.validate()) {
-                          await GoRouter.of(context).push('/');
-                        }
-                      },
-                    ),
+                    SendEmailVerificationBlocConsumer(),
                   ],
                 ),
               ),

@@ -5,6 +5,7 @@ import 'package:customer_service_realtime_chat/core/widgets/custom_material_butt
 import 'package:customer_service_realtime_chat/features/register_view_feature/data/models/register_input_model.dart';
 import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views_models/register_cubit/register_cubit.dart';
 import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views_models/register_cubit/register_states.dart';
+import 'package:customer_service_realtime_chat/resauble_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -23,7 +24,7 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
         } else if (state is RegisterError) {
           showSnackBar(context, message: state.message);
           if (state.message.contains("Please Go to RegisterConfirm")) {
-            GoRouter.of(context).push(AppRouter.kEmailVerificationView);
+            await GoRouter.of(context).push(AppRouter.kEmailVerificationView);
           }
         }
       },
@@ -33,14 +34,15 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
         } else {
           return CustomMaterialButton(
             text: "Register",
-            onPressed: () {
+            onPressed: () async {
               if (RegisterCubit.get(context).formKey.currentState!.validate()) {
                 var registerInputModel = RegisterInputModel(
                   name: RegisterCubit.get(context).nameController.text,
                   email: RegisterCubit.get(context).emailController.text,
                   password: RegisterCubit.get(context).passwordController.text,
                 );
-                RegisterCubit.get(context).register(registerInputModel);
+                ResaubleVariables.email = registerInputModel.email;
+                await RegisterCubit.get(context).register(registerInputModel);
               }
             },
           );
@@ -51,6 +53,7 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
 
   Future<void> onRegisterSuccess(BuildContext context) async {
     showSnackBar(context, message: "Register Success");
-    await GoRouter.of(context).push(AppRouter.kEmailVerificationView);
+    await GoRouter.of(context)
+        .push(AppRouter.kEmailVerificationView, extra: ResaubleVariables.email);
   }
 }
