@@ -1,7 +1,7 @@
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:customer_service_realtime_chat/core/util/functions/show_snack_bar.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
-import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/widgets/email_verification_otp_field.dart';
+import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views/widgets/email_verification_otp_field.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
