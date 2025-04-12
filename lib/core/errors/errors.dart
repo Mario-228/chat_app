@@ -33,8 +33,8 @@ class ServerError extends Errors {
           return ServerError(
               errorMessage: "UnExpected error , please try again later ...");
         }
-      // default:
-      //   return ServerError(errorMessage: "Something went wrong");
+      default:
+        return ServerError(errorMessage: "Something went wrong");
     }
   }
 

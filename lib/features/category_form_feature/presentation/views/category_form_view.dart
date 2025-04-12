@@ -34,6 +34,11 @@ class _CategoryFormViewState extends State<CategoryFormView> {
               onPressed: () async {
                 await GoRouter.of(context).push(AppRouter.kchatView);
               },
+            ),
+            SizedBox(height: 20),
+            CustomMaterialButton(
+              text: "Logout",
+              onPressed: () async {},
             )
           ],
         ),
