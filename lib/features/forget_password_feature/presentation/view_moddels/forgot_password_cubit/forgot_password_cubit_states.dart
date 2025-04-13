@@ -4,7 +4,7 @@ abstract class ForgotPasswordCubitStates {}
 
 class ForgotPasswordCubitInitial extends ForgotPasswordCubitStates {}
 
-class ForgotPasswordCubitAwaiting extends ForgotPasswordCubitStates {}
+class ForgotPasswordCubitLoading extends ForgotPasswordCubitStates {}
 
 class ForgotPasswordCubitSuccess extends ForgotPasswordCubitStates {}
 
