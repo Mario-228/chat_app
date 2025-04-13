@@ -2,6 +2,7 @@ import 'package:customer_service_realtime_chat/features/category_form_feature/pr
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/chat_view.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views/email_verification_view.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views_models/verification_cubit/verification_cubit.dart';
+import 'package:customer_service_realtime_chat/features/forget_password_feature/presentation/view_moddels/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:customer_service_realtime_chat/features/forget_password_feature/presentation/views/forget_password_view.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/presentation/views/login_view.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/presentation/views_models/login_cubit/login_cubit.dart';
@@ -31,7 +32,10 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kforgetPasswordView,
-      builder: (context, state) => const ForgetPasswordView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => ForgotPasswordCubit(),
+        child: ForgetPasswordView(),
+      ),
     ),
     GoRoute(
       path: kRegisterView,
