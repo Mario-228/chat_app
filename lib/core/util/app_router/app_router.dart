@@ -1,5 +1,7 @@
+import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views_models/logout_cubit/logout_cubit.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/chat_view.dart';
-import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/email_verification_view.dart';
+import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views/email_verification_view.dart';
+import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views_models/verification_cubit/verification_cubit.dart';
 import 'package:customer_service_realtime_chat/features/forget_password_feature/presentation/views/forget_password_view.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/presentation/views/login_view.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/presentation/views_models/login_cubit/login_cubit.dart';
@@ -7,6 +9,7 @@ import 'package:customer_service_realtime_chat/features/register_view_feature/pr
 import 'package:customer_service_realtime_chat/features/register_view_feature/presentation/views_models/register_cubit/register_cubit.dart';
 import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/views/reset_password_view.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views/category_form_view.dart';
+import 'package:customer_service_realtime_chat/resauble_variables.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -47,11 +50,18 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kCategoryFormView,
-      builder: (context, state) => const CategoryFormView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => LogoutCubit(),
+        child: const CategoryFormView(),
+      ),
     ),
     GoRoute(
       path: kEmailVerificationView,
-      builder: (context, state) => const EmailVerificationView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => VerificationCubit()
+          ..sendVerification(email: ResaubleVariables.email),
+        child: EmailVerificationView(email: ResaubleVariables.email),
+      ),
     ),
   ]);
 }
