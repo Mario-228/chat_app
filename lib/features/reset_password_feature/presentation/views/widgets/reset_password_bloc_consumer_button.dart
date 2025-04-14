@@ -42,7 +42,7 @@ class ResetPasswordBlocConsumerButton extends StatelessWidget {
                   .currentState!
                   .validate()) {
                 await ResetPasswordCubit.get(context)
-                    .resetPasswordFunction(email: "");
+                    .resetPasswordFunction(email: email);
               }
               //could not extract as widet, de to the OTP value needing to be checked
             },
