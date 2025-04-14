@@ -1,17 +1,17 @@
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
-import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
-import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_text_form_field.dart';
+import 'package:customer_service_realtime_chat/features/forget_password_feature/presentation/view_moddels/forgot_password_cubit/forgot_password_cubit.dart';
+import 'package:customer_service_realtime_chat/features/forget_password_feature/presentation/views/widgets/forget_passowrd_bloc_consumer_button.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
 
 class ForgetPasswordViewBody extends StatelessWidget {
   const ForgetPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    TextEditingController emailController = TextEditingController();
+    // GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    // TextEditingController emailController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SizedBox(
@@ -20,7 +20,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Form(
-              key: formKey,
+              key: ForgotPasswordCubit.get(context).formkey,
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
@@ -34,19 +34,12 @@ class ForgetPasswordViewBody extends StatelessWidget {
                     CustomTextFormField(
                       type: TextInputType.emailAddress,
                       labelText: "Email Address",
-                      controller: emailController,
+                      controller: ForgotPasswordCubit.get(context)
+                          .forgotPasswordEmailController,
                       validator: "Enter your email address",
                     ),
                     SizedBox(height: 40.0),
-                    CustomMaterialButton(
-                      text: "Send",
-                      onPressed: () async {
-                        if (formKey.currentState!.validate()) {
-                          await GoRouter.of(context)
-                              .push(AppRouter.kResetPasswordView);
-                        }
-                      },
-                    ),
+                    ForgetPassowrdBlocConsumerButton(),
                   ],
                 ),
               ),

@@ -27,8 +27,7 @@ class ApiService {
     return response.data;
   }
 
-  Future<Map<String, dynamic>> postData(
-      String endPoint, Map<String, dynamic> query) async {
+  Future<Map<String, dynamic>> postData(String endPoint, Object query) async {
     var response = await dioHelper.post(
       endPoint,
       data: jsonEncode(query),
