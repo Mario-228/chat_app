@@ -9,8 +9,8 @@ class TicketFormCubit extends Cubit<TicketFormCubitStates> {
   static TicketFormCubit get(context) => BlocProvider.of(context);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController chatTicketController = TextEditingController();
+  final TextEditingController chatTopicController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
   String dropDownValue = "Other";

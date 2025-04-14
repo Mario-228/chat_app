@@ -20,18 +20,18 @@ class TicketSubmitFormFields extends StatelessWidget {
           children: [
             SizedBox(height: 20),
             CustomTextFormField(
-              labelText: "Name",
+              labelText: "Chat ticket",
               icon: Icons.person,
               type: TextInputType.name,
-              controller: TicketFormCubit.get(context).nameController,
+              controller: TicketFormCubit.get(context).chatTicketController,
               validator: "please enter your full name",
             ),
             SizedBox(height: 25),
             CustomTextFormField(
-              labelText: "Email",
+              labelText: "Chat Topic",
               icon: Icons.email,
               type: TextInputType.emailAddress,
-              controller: TicketFormCubit.get(context).emailController,
+              controller: TicketFormCubit.get(context).chatTopicController,
               validator: "please enter your email",
             ),
             SizedBox(height: 25),
