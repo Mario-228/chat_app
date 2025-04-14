@@ -5,6 +5,7 @@ import 'package:customer_service_realtime_chat/features/submit_ticket_feature/pr
 import 'package:customer_service_realtime_chat/features/submit_ticket_feature/presentation/view/widgets/ticket_form_view_consumer.dart';
 import 'package:customer_service_realtime_chat/features/submit_ticket_feature/presentation/view_model/ticket_form_cubit/ticket_form_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
 class TicketSubmitFormFields extends StatelessWidget {
   const TicketSubmitFormFields({
@@ -13,6 +14,7 @@ class TicketSubmitFormFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TicketFormCubit.get(context).chatTicketIdController.text = Uuid().v1();
     return Form(
       key: TicketFormCubit.get(context).formKey,
       child: SingleChildScrollView(
@@ -20,20 +22,21 @@ class TicketSubmitFormFields extends StatelessWidget {
           children: [
             SizedBox(height: 20),
             CustomTextFormField(
+              isEnabled: false,
               labelText: "Chat ticket",
               icon: Icons.person,
               type: TextInputType.name,
-              controller: TicketFormCubit.get(context).chatTicketController,
-              validator: "please enter your full name",
+              controller: TicketFormCubit.get(context).chatTicketIdController,
+              validator: "Please enter your ticket ID",
             ),
             SizedBox(height: 25),
-            CustomTextFormField(
-              labelText: "Chat Topic",
-              icon: Icons.email,
-              type: TextInputType.emailAddress,
-              controller: TicketFormCubit.get(context).chatTopicController,
-              validator: "please enter your email",
-            ),
+            // CustomTextFormField(
+            //   labelText: "Chat Topic",
+            //   icon: Icons.message,
+            //   type: TextInputType.text,
+            //   controller: TicketFormCubit.get(context).chatTopicController,
+            //   validator: "please enter your chat's main topic",
+            // ),
             SizedBox(height: 25),
             CustomTextFormField(
               labelText: "Service",

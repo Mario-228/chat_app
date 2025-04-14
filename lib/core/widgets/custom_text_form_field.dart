@@ -11,6 +11,7 @@ class CustomTextFormField extends StatelessWidget {
     this.icon,
     this.onPressed,
     this.isPassword = false,
+    this.isEnabled = true,
   });
   final TextInputType type;
   final String labelText;
@@ -19,9 +20,11 @@ class CustomTextFormField extends StatelessWidget {
   final IconData? icon;
   final void Function()? onPressed;
   final bool isPassword;
+  final bool isEnabled;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: isEnabled,
       obscureText: isPassword,
       keyboardType: type,
       decoration: InputDecoration(
