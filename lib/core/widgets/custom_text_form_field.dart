@@ -2,17 +2,17 @@ import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dar
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
-    super.key,
-    required this.type,
-    required this.labelText,
-    required this.controller,
-    required this.validator,
-    this.icon,
-    this.onPressed,
-    this.isPassword = false,
-    this.isEnabled = true,
-  });
+  const CustomTextFormField(
+      {super.key,
+      required this.type,
+      required this.labelText,
+      required this.controller,
+      required this.validator,
+      this.icon,
+      this.onPressed,
+      this.isPassword = false,
+      this.isEnabled = true,
+      this.maxLines = 1});
   final TextInputType type;
   final String labelText;
   final TextEditingController controller;
@@ -21,10 +21,12 @@ class CustomTextFormField extends StatelessWidget {
   final void Function()? onPressed;
   final bool isPassword;
   final bool isEnabled;
+  final int? maxLines;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       enabled: isEnabled,
+      maxLines: maxLines,
       obscureText: isPassword,
       keyboardType: type,
       decoration: InputDecoration(

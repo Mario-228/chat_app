@@ -10,8 +10,8 @@ class TicketFormCubit extends Cubit<TicketFormCubitStates> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final TextEditingController chatTicketIdController = TextEditingController();
-  // final TextEditingController chatTopicController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController chatTopicController = TextEditingController();
+  // final TextEditingController phoneController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
   int dropDownValue = 4;
 
