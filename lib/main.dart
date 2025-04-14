@@ -1,7 +1,10 @@
 import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
+import 'package:customer_service_realtime_chat/core/util/supabase_chatting_service/supabase_chatting_service.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SupabaseChattingService.initSupabase();
   runApp(const MyApp());
 }
 
