@@ -48,11 +48,9 @@ abstract class AppRouter {
     GoRoute(
       path: kResetPasswordView,
       builder: (context, state) => BlocProvider(
-          create: (context) => ForgotPasswordCubit(),
-          child: BlocProvider(
-            create: (context) => ResetPasswordCubit(),
-            child: ResetPasswordView(),
-          )),
+        create: (context) => ResetPasswordCubit(),
+        child: ResetPasswordView(email: state.extra as String),
+      ),
     ),
     GoRoute(
       path: kchatView,

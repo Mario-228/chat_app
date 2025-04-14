@@ -3,13 +3,13 @@ import 'package:customer_service_realtime_chat/features/reset_password_feature/p
 import 'package:flutter/material.dart';
 
 class ResetPasswordView extends StatelessWidget {
-  const ResetPasswordView({super.key});
-
+  const ResetPasswordView({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppbar(title: ""),
-      body: ResetPasswordViewBody(),
+    return Scaffold(
+      appBar: const CustomAppbar(title: ""),
+      body: ResetPasswordViewBody(email: email),
     );
   }
 }
