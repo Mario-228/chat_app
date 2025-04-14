@@ -24,7 +24,7 @@ class TicketSubmitFormFields extends StatelessWidget {
             CustomTextFormField(
               isEnabled: false,
               labelText: "Chat ticket",
-              icon: Icons.person,
+              icon: Icons.sd_card_sharp,
               type: TextInputType.name,
               controller: TicketFormCubit.get(context).chatTicketIdController,
               validator: "Please enter your ticket ID",
@@ -37,17 +37,10 @@ class TicketSubmitFormFields extends StatelessWidget {
               controller: TicketFormCubit.get(context).chatTopicController,
               validator: "please enter your chat's main topic",
             ),
-            // CustomTextFormField(
-            //   labelText: "Service",
-            //   icon: Icons.phone,
-            //   type: TextInputType.number,
-            //   controller: TicketFormCubit.get(context).phoneController,
-            //   validator: "please enter your phone number",
-            // ),
             SizedBox(height: 25),
             Row(
               children: [
-                Text("Category", style: AppFonts.textStyleRegular16),
+                Text("Category Selection", style: AppFonts.textStyleRegular16),
                 Spacer(
                   flex: 1,
                 )

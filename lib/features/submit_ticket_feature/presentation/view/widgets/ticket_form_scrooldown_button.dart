@@ -12,35 +12,39 @@ class TicketFormDropDownButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TicketFormCubit, TicketFormCubitStates>(
       builder: (context, state) {
-        return DropdownButton(
-          value: TicketFormCubit.get(context).dropDownValue,
-          isExpanded: true,
-          borderRadius: BorderRadius.circular(10),
-          // hint: Text("chose service"),
-          items: [
-            DropdownMenuItem(
-              value: 1,
-              child: Text("Customer Service"),
-            ),
-            DropdownMenuItem(
-              value: 2,
-              child: Text("Call Center"),
-            ),
-            DropdownMenuItem(
-              value: 3,
-              child: Text("Billing issue"),
-            ),
-            DropdownMenuItem(
-              value: 4,
-              child: Text("Other"),
-            ),
-          ],
-          onChanged: (selectedValue) {
-            TicketFormCubit.get(context).changeDropDownValue(selectedValue);
+        return Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade500),
+              borderRadius: BorderRadius.circular(5.0)),
+          child: DropdownButton(
+            value: TicketFormCubit.get(context).dropDownValue,
+            isExpanded: true, underline: SizedBox(),
+            // hint: Text("chose service"),
+            items: [
+              DropdownMenuItem(
+                value: 1,
+                child: Text("  Customer Service"),
+              ),
+              DropdownMenuItem(
+                value: 2,
+                child: Text("  Call Center"),
+              ),
+              DropdownMenuItem(
+                value: 3,
+                child: Text("  Billing issue"),
+              ),
+              DropdownMenuItem(
+                value: 4,
+                child: Text("  Other"),
+              ),
+            ],
+            onChanged: (selectedValue) {
+              TicketFormCubit.get(context).changeDropDownValue(selectedValue);
 
-            //print(selectedValue);
-          },
-          iconSize: 40,
+              //print(selectedValue);
+            },
+            iconSize: 40,
+          ),
         );
       },
     );
