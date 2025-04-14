@@ -1,3 +1,4 @@
+import 'package:customer_service_realtime_chat/core/util/cache_helper/cache_helper.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/data/login_repo/login_repo_implementation.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/data/models/login_input_model.dart';
 import 'package:customer_service_realtime_chat/features/login_view_feature/presentation/views_models/login_cubit/login_states.dart';
@@ -18,7 +19,10 @@ class LoginCubit extends Cubit<LoginStates> {
         await LoginRepoImplementation().loginUser(loginInputModel: model);
     response.fold(
       (onError) => emit(LoginError(errorMessage: onError.errorMessage)),
-      (onSuccess) => emit(LoginSuccess(model: onSuccess)),
+      (onSuccess) async {
+        await CacheHelper.saveLoginData(onSuccess);
+        emit(LoginSuccess(model: onSuccess));
+      },
     );
   }
 }
