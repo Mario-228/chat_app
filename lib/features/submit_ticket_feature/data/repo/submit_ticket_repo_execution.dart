@@ -10,7 +10,7 @@ import 'package:dio/dio.dart';
 class SubmitTicketRepoExecution extends SubmitTicketRepo {
   @override
   Future<Either<Errors, void>> submitTicket(
-      {required TocketFormModel tocketFormModel}) async {
+      {required TicketFormModel tocketFormModel}) async {
     try {
       await ApiService(BaseUrl.api).postData(
           SubmitTicketRepoEndpoint.endPoint, tocketFormModel.toJson());

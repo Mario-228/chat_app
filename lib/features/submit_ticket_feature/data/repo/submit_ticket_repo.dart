@@ -4,5 +4,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class SubmitTicketRepo {
   Future<Either<Errors, void>> submitTicket(
-      {required TocketFormModel tocketFormModel});
+      {required TicketFormModel tocketFormModel});
 }

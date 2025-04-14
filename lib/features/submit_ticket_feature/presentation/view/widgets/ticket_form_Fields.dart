@@ -1,5 +1,4 @@
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
-import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_text_form_field.dart';
 import 'package:customer_service_realtime_chat/features/submit_ticket_feature/presentation/view/widgets/ticket_form_scrooldown_button.dart';
 import 'package:customer_service_realtime_chat/features/submit_ticket_feature/presentation/view/widgets/ticket_form_view_consumer.dart';

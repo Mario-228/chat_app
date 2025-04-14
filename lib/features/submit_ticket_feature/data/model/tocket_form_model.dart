@@ -1,11 +1,11 @@
-class TocketFormModel {
+class TicketFormModel {
   final String topicName;
   final String ticketNumber;
   final int category;
   final String message;
   final int chatId;
 
-  TocketFormModel(
+  TicketFormModel(
       {required this.topicName,
       required this.ticketNumber,
       required this.category,
