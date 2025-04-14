@@ -1,24 +1,25 @@
 class TocketFormModel {
-  final String name;
-  final String email;
-  final String service;
-  final DateTime date;
+  final String topicName;
+  final String ticketNumber;
+  final int category;
   final String message;
+  final int chatId;
 
   TocketFormModel(
-      {required this.name,
-      required this.email,
-      required this.service,
-      required this.date,
-      required this.message});
+      {required this.topicName,
+      required this.ticketNumber,
+      required this.category,
+      required this.message,
+      required this.chatId});
 
   Map<String, dynamic> toJson() {
     return {
-      'name': name,
-      'email': email,
-      'service': service,
-      'date': date,
-      'message': message
+      'topic': topicName,
+      'ticketNumber': ticketNumber,
+      'categoryId': category,
+      'description': message,
+      'createdAt': DateTime.now().toString(),
+      'chatId': chatId
     };
   }
 }

@@ -19,24 +19,25 @@ class TicketFormDropDownButton extends StatelessWidget {
           // hint: Text("chose service"),
           items: [
             DropdownMenuItem(
-              value: "Customer Service",
+              value: 1,
               child: Text("Customer Service"),
             ),
             DropdownMenuItem(
-              value: "Call Center",
+              value: 2,
               child: Text("Call Center"),
             ),
             DropdownMenuItem(
-              value: "Billing issue",
+              value: 3,
               child: Text("Billing issue"),
             ),
             DropdownMenuItem(
-              value: "Other",
+              value: 4,
               child: Text("Other"),
             ),
           ],
           onChanged: (selectedValue) {
             TicketFormCubit.get(context).changeDropDownValue(selectedValue);
+
             //print(selectedValue);
           },
           iconSize: 40,

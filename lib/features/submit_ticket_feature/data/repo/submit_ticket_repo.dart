@@ -3,5 +3,6 @@ import 'package:customer_service_realtime_chat/features/submit_ticket_feature/da
 import 'package:dartz/dartz.dart';
 
 abstract class SubmitTicketRepo {
-  Future<Either<Errors, void>> submitTicket(TocketFormModel tocketFormModel);
+  Future<Either<Errors, void>> submitTicket(
+      {required TocketFormModel tocketFormModel});
 }

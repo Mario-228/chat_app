@@ -13,7 +13,7 @@ class TicketFormCubit extends Cubit<TicketFormCubitStates> {
   final TextEditingController chatTopicController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
-  String dropDownValue = "Other";
+  int dropDownValue = 4;
 
   void submitTicket() {
     emit(TicketFormLoading());
