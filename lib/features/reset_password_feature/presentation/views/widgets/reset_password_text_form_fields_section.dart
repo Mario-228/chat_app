@@ -1,9 +1,7 @@
 import 'dart:developer';
-
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_text_form_field.dart';
 import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/view_model/reset_password_cubit/reset_password_cubit.dart';
-import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/views/widgets/reset_password_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
@@ -29,15 +27,11 @@ class ResetPasswordTextFormFieldsSection extends StatelessWidget {
             filled: true,
             showFieldAsBox: true,
             onCodeChanged: (value) {
-              ResetPasswordViewBody.otp = value;
+              ResetPasswordCubit.get(context).otp = value;
             },
             onSubmit: (String verificationCode) {
               log(verificationCode);
-              ResetPasswordViewBody.otp = verificationCode;
-              //assuming this is the value of the code
-              ResetPasswordCubit.get(context).codeController.text =
-                  verificationCode;
-              print(verificationCode);
+              ResetPasswordCubit.get(context).otp = verificationCode;
             },
           ),
         ),

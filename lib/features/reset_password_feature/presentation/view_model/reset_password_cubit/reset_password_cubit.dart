@@ -5,24 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordCubitStates> {
-  ResetPasswordCubit() : super(ResetPasswordCubitInitial());
+  ResetPasswordCubit() : super(ResetPasswordInitialState());
 
   static ResetPasswordCubit get(context) => BlocProvider.of(context);
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController codeController = TextEditingController();
-
+  String otp = '';
   Future<void> resetPasswordFunction({required String email}) async {
-    emit(ResetPasswordStateLoading());
+    emit(ResetPasswordLoadingState());
     var response = await ResetPasswordRepoImplementaion().resetPasswordByCode(
-        model: ResetPasswordModel(
-            email: email,
-            code: codeController.text.trim(),
-            password: passwordController.text.trim(),
-            confirmPassword: passwordController.text.trim()));
+      model: ResetPasswordModel(
+        email: email,
+        code: otp,
+        password: passwordController.text.trim(),
+      ),
+    );
     response.fold(
-        (onError) => emit(ResetPasswordStateError(messaereError: onError)),
-        (onSuccess) => emit(ResetPasswordStateSuccess()));
+        (onError) => emit(ResetPasswordErrorState(messageError: onError)),
+        (onSuccess) => emit(ResetPasswordSuccessState()));
   }
 }

@@ -51,7 +51,7 @@ abstract class AppRouter {
           create: (context) => ForgotPasswordCubit(),
           child: BlocProvider(
             create: (context) => ResetPasswordCubit(),
-            child: ResetPasswordView(),
+            child: ResetPasswordView(email: state.extra as String),
           )),
     ),
     GoRoute(
