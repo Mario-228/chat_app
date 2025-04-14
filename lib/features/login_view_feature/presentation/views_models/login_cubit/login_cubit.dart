@@ -18,7 +18,7 @@ class LoginCubit extends Cubit<LoginStates> {
         await LoginRepoImplementation().loginUser(loginInputModel: model);
     response.fold(
       (onError) => emit(LoginError(errorMessage: onError.errorMessage)),
-      (onSuccess) => emit(LoginSuccess()),
+      (onSuccess) => emit(LoginSuccess(model: onSuccess)),
     );
   }
 }
