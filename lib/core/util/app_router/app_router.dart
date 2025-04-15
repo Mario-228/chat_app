@@ -11,6 +11,8 @@ import 'package:customer_service_realtime_chat/features/register_view_feature/pr
 import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/view_model/reset_password_cubit/reset_password_cubit.dart';
 import 'package:customer_service_realtime_chat/features/reset_password_feature/presentation/views/reset_password_view.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views/category_form_view.dart';
+import 'package:customer_service_realtime_chat/features/submit_ticket_feature/presentation/view/ticket_submit_view.dart';
+import 'package:customer_service_realtime_chat/features/submit_ticket_feature/presentation/view_model/ticket_form_cubit/ticket_form_cubit.dart';
 import 'package:customer_service_realtime_chat/resauble_variables.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -22,6 +24,7 @@ abstract class AppRouter {
   static const String kchatView = "/chat_view";
   static const String kCategoryFormView = "/category-form-view";
   static const String kEmailVerificationView = "/email-verification-view";
+  static const String kTicketFormView = "/ticket-form-view";
 
   static final routers = GoRouter(routes: [
     GoRoute(
@@ -69,6 +72,13 @@ abstract class AppRouter {
         create: (context) => VerificationCubit()
           ..sendVerification(email: ResaubleVariables.email),
         child: EmailVerificationView(email: ResaubleVariables.email),
+      ),
+    ),
+    GoRoute(
+      path: kTicketFormView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => TicketFormCubit(),
+        child: const TicketFormView(),
       ),
     ),
   ]);
