@@ -1,3 +1,4 @@
+import 'package:customer_service_realtime_chat/core/util/cache_helper/cache_helper.dart';
 import 'package:customer_service_realtime_chat/core/util/functions/show_snack_bar.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_loading_widget.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
@@ -29,7 +30,8 @@ class LogoutBlocConsumerButton extends StatelessWidget {
           return CustomMaterialButton(
             text: "Logout",
             onPressed: () async {
-              await LogoutCubit.get(context).logOut(token: "");
+              await LogoutCubit.get(context)
+                  .logOut(token: CacheHelper.getLoginData().token);
             },
           );
         }

@@ -12,7 +12,8 @@ class ChatViewBody extends StatefulWidget {
 }
 
 class _ChatViewBodyState extends State<ChatViewBody> {
-  final stream = SupabaseChattingService.messagesStream("Messages", "Id");
+  final stream =
+      SupabaseChattingService.messagesStream("Messages", "ChatId", 2);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,14 +30,17 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       stream: stream,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+          var messagesLength = snapshot.data!.length;
           return Expanded(
             child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 reverse: true,
                 itemBuilder: (context, index) => ChatMessageView(
-                    text: snapshot.data![index]["Content"] ?? ""),
+                    text: snapshot.data![messagesLength - index - 1]
+                            ["Content"] ??
+                        ""),
                 separatorBuilder: (context, index) => SizedBox(height: 10),
-                itemCount: snapshot.data!.length),
+                itemCount: messagesLength),
           );
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());

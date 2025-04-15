@@ -1,4 +1,3 @@
-import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:customer_service_realtime_chat/core/util/functions/show_snack_bar.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_material_button.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views_models/verification_cubit/verification_cubit.dart';
@@ -20,8 +19,7 @@ class SendEmailVerificationBlocConsumer extends StatelessWidget {
           showSnackBar(context, message: state.error);
         } else if (state is VerificationSuccess) {
           showSnackBar(context, message: "Email Verification Success");
-          await GoRouter.of(context)
-              .pushReplacement(AppRouter.kCategoryFormView);
+          await GoRouter.of(context).pushReplacement('/');
         }
       },
       builder: (context, state) {
@@ -42,10 +40,6 @@ class SendEmailVerificationBlocConsumer extends StatelessWidget {
                   .validate()) {
                 await VerificationCubit.get(context).verifyVerification(
                     otp: VerificationCubit.get(context).otp);
-                if (context.mounted) {
-                  await GoRouter.of(context)
-                      .pushReplacement(AppRouter.kCategoryFormView);
-                }
               }
             },
           );
