@@ -52,6 +52,56 @@ class ApiService {
     return response.data;
   }
 
+  Future<Map<String, dynamic>> putWithToken(
+      String endPoint, Object data, String token) async {
+    var response = await dioHelper.put(
+      endPoint,
+      data: jsonEncode(data),
+      options: Options(
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+          'Authorization': 'Bearer $token'
+        },
+        contentType: 'application/json',
+      ),
+    );
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> postMessage(
+      String endPoint, Object data, String token) async {
+    var response = await dioHelper.post(
+      endPoint,
+      data: jsonEncode(data),
+      options: Options(
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+          'Authorization': 'Bearer $token'
+        },
+        contentType: 'application/json',
+      ),
+    );
+    return response.data;
+  }
+
+  Future<Object> createChatRoom(
+      {required String endPoint,
+      required Object data,
+      required String token}) async {
+    var response = await dioHelper.post(
+      endPoint,
+      data: jsonEncode(data),
+      options: Options(
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+          'Authorization': 'Bearer $token'
+        },
+        contentType: 'application/json',
+      ),
+    );
+    return response.data;
+  }
+
   Future<Map<String, dynamic>> signOut(
     String endPoint,
     String token,

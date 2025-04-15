@@ -4,18 +4,18 @@ import 'package:customer_service_realtime_chat/features/chat_feature/presentatio
 import 'package:flutter/material.dart';
 
 class ChatView extends StatelessWidget {
-  const ChatView({super.key});
-
+  const ChatView({super.key, required this.chatId});
+  final int chatId;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(
-        title: "Chat ",
+        title: "Chat",
         actions: [
-          TicketRouterActionButton(),
+          TicketRouterActionButton(chatId: chatId),
         ],
       ),
-      body: ChatViewBody(),
+      body: ChatViewBody(chatId: chatId),
     );
   }
 }

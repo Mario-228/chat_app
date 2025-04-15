@@ -9,7 +9,7 @@ class SecoundaryIntrocuctionText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Text(
-        "Choose a catagory tp contact with a live agent",
+        "Choose a catagory to contact with a live agent",
         style: AppFonts.textStyleSemiBold20,
       ),
     );

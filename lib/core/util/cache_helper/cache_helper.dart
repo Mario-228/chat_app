@@ -32,6 +32,7 @@ abstract class CacheHelper {
       refreshToken: "",
       refreshTokenExpiryTime: "",
       address: "",
+      role: "",
     );
   }
 
