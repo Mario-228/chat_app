@@ -29,9 +29,9 @@ class ChatRepoImplementation implements ChatRepo {
     try {
       var response = await ApiService(BaseUrl.api).putWithToken(
           ChatEndPoints.closeChatRoom,
-          {"id": chatId},
+          chatId,
           CacheHelper.getLoginData().token);
-      return right(response["Message"]);
+      return right(response["message"]);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerError.fromDioError(e));
