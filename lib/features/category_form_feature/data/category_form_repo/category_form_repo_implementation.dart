@@ -23,4 +23,24 @@ class CategoryFormRepoImplementation implements CategoryFormRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Errors, int>> createChatRoom(
+      {required String token, int? categoryId}) async {
+    try {
+      var response = categoryId == null
+          ? await ApiService(BaseUrl.api).createChatRoom(
+              endPoint: CategoryEndPoints.createChatRoom, token: token)
+          : await ApiService(BaseUrl.api).createChatRoom(
+              endPoint: CategoryEndPoints.createChatRoom,
+              data: {"categoryId": categoryId},
+              token: token);
+      return right(response as int);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerError.fromDioError(e));
+      }
+      return left(ServerError(errorMessage: e.toString()));
+    }
+  }
 }
