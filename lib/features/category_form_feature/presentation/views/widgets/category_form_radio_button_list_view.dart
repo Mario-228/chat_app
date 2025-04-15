@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:customer_service_realtime_chat/core/util/app_fonts/app_fonts.dart';
+import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views_models/create_chat_room_cubit/create_chat_room_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
@@ -12,7 +11,7 @@ class CategorySelectionRadioButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GroupButtonController controller = GroupButtonController();
-    controller.selectIndex(3);
+    controller.selectIndex(0);
     return Column(
       children: [
         GroupButton(
@@ -57,7 +56,8 @@ class CategorySelectionRadioButton extends StatelessWidget {
             "Billing issue",
             "Other"
           ],
-          onSelected: (value, index, isSelected) => log(value),
+          onSelected: (value, index, isSelected) =>
+              CreateChatRoomCubit.get(context).categoryId = index + 1,
           isRadio: true,
         )
       ],

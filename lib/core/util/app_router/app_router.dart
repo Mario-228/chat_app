@@ -1,5 +1,7 @@
+import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views_models/create_chat_room_cubit/create_chat_room_cubit.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/presentation/views_models/logout_cubit/logout_cubit.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/chat_view.dart';
+import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views_models/chatting_cubit/chatting_cubit.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views/email_verification_view.dart';
 import 'package:customer_service_realtime_chat/features/email_verification_feature/presentation/views_models/verification_cubit/verification_cubit.dart';
 import 'package:customer_service_realtime_chat/features/forget_password_feature/presentation/view_moddels/forgot_password_cubit/forgot_password_cubit.dart';
@@ -57,13 +59,23 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kchatView,
-      builder: (context, state) => const ChatView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => ChattingCubit(),
+        child: ChatView(chatId: state.extra as int),
+      ),
     ),
     GoRoute(
       path: kCategoryFormView,
-      builder: (context, state) => BlocProvider(
-        create: (context) => LogoutCubit(),
-        child: const CategoryFormView(),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => CreateChatRoomCubit(),
+          ),
+          BlocProvider(
+            create: (context) => LogoutCubit(),
+          ),
+        ],
+        child: CategoryFormView(),
       ),
     ),
     GoRoute(
