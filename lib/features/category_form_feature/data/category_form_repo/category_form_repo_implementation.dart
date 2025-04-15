@@ -1,6 +1,7 @@
 import 'package:customer_service_realtime_chat/core/errors/errors.dart';
 import 'package:customer_service_realtime_chat/core/util/api_services/api_services.dart';
 import 'package:customer_service_realtime_chat/core/util/api_services/base_url.dart';
+import 'package:customer_service_realtime_chat/core/util/cache_helper/cache_helper.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/data/category_form_repo/category_end_points.dart';
 import 'package:customer_service_realtime_chat/features/category_form_feature/data/category_form_repo/category_form_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -28,9 +29,11 @@ class CategoryFormRepoImplementation implements CategoryFormRepo {
   Future<Either<Errors, int>> createChatRoom(
       {required String token, int? categoryId}) async {
     try {
-      var response = categoryId == null
+      var response = CacheHelper.getLoginData().role == "Agent"
           ? await ApiService(BaseUrl.api).createChatRoom(
-              endPoint: CategoryEndPoints.createChatRoom, token: token)
+              endPoint: CategoryEndPoints.createChatRoom,
+              data: {"categoryId": 0},
+              token: token)
           : await ApiService(BaseUrl.api).createChatRoom(
               endPoint: CategoryEndPoints.createChatRoom,
               data: {"categoryId": categoryId},

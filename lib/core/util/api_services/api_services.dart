@@ -53,7 +53,9 @@ class ApiService {
   }
 
   Future<Object> createChatRoom(
-      {required String endPoint, Object? data, required String token}) async {
+      {required String endPoint,
+      required Object data,
+      required String token}) async {
     var response = await dioHelper.post(
       endPoint,
       data: jsonEncode(data),

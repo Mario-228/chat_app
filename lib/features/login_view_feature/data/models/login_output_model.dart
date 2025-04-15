@@ -12,6 +12,7 @@ class LoginOutputModel {
   final String refreshToken;
   final String refreshTokenExpiryTime;
   final String address;
+  final String role;
 
   LoginOutputModel({
     required this.id,
@@ -27,6 +28,7 @@ class LoginOutputModel {
     required this.refreshToken,
     required this.refreshTokenExpiryTime,
     required this.address,
+    required this.role,
   });
 
   factory LoginOutputModel.fromJson(Map<String, dynamic> json) =>
@@ -44,6 +46,7 @@ class LoginOutputModel {
         refreshToken: json['refreshToken'] ?? '',
         refreshTokenExpiryTime: json['refreshTokenExpiryTime'] ?? '',
         address: json['address'] ?? '',
+        role: json['role'] ?? 'Customer',
       );
 
   Map<String, dynamic> toJson() => {
@@ -60,5 +63,6 @@ class LoginOutputModel {
         'refreshToken': refreshToken,
         'refreshTokenExpiryTime': refreshTokenExpiryTime,
         'address': address,
+        'role': role
       };
 }
