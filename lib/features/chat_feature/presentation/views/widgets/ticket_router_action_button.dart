@@ -12,13 +12,14 @@ class TicketRouterActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () async {
-          await ChatRepoImplementation().closeChatRoom(chatId: chatId);
+      onPressed: () async {
+        await ChatRepoImplementation().closeChatRoom(chatId: chatId);
 
-          if (context.mounted) {
-            GoRouter.of(context).pushReplacement(AppRouter.kTicketFormView);
-          }
-        },
-        icon: const Icon(Icons.send));
+        if (context.mounted) {
+          GoRouter.of(context).push(AppRouter.kTicketFormView);
+        }
+      },
+      icon: const Icon(Icons.send),
+    );
   }
 }

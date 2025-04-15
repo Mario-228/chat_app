@@ -1,3 +1,4 @@
+import 'package:customer_service_realtime_chat/core/util/cache_helper/cache_helper.dart';
 import 'package:customer_service_realtime_chat/core/util/supabase_chatting_service/supabase_chatting_service.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_loading_widget.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/widgets/chat_message_view.dart';
@@ -49,10 +50,14 @@ class _ChatViewBodyState extends State<ChatViewBody> {
             child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 reverse: true,
-                itemBuilder: (context, index) => ChatMessageView(
-                    text: snapshot.data![messagesLength - index - 1]
-                            ["Content"] ??
-                        ""),
+                itemBuilder: (context, index) {
+                  var dataFromSupabase =
+                      snapshot.data![messagesLength - index - 1];
+                  return ChatMessageView(
+                      isSender: dataFromSupabase["SenderId"] ==
+                          CacheHelper.getLoginData().id,
+                      text: dataFromSupabase["Content"] ?? "");
+                },
                 separatorBuilder: (context, index) => SizedBox(height: 10),
                 itemCount: messagesLength),
           );
