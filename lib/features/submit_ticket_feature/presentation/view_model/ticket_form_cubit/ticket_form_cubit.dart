@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TicketFormCubit extends Cubit<TicketFormCubitStates> {
-  TicketFormCubit() : super(TicketFormLoading());
+  TicketFormCubit() : super(TicketFormInitial());
 
   static TicketFormCubit get(context) => BlocProvider.of(context);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
