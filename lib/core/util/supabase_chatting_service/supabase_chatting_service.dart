@@ -10,7 +10,9 @@ abstract class SupabaseChattingService {
     );
   }
 
-  static SupabaseStreamFilterBuilder messagesStream(
-          String tableName, Object primaryKey) =>
-      supabase.from(tableName).stream(primaryKey: ['$primaryKey']);
+  static SupabaseStreamBuilder messagesStream(
+          String tableName, Object primaryKey, int chatId) =>
+      supabase
+          .from(tableName)
+          .stream(primaryKey: [primaryKey.toString()]).eq('ChatId', chatId);
 }
