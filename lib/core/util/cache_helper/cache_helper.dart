@@ -5,7 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 abstract class CacheHelper {
   static late Box _box;
 
-  static Future<void> init() async {
+  static Future<void> initHive() async {
     await Hive.initFlutter();
     _box = await Hive.openBox(CacheConstants.loginBox);
   }
