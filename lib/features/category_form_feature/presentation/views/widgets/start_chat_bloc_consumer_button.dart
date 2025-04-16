@@ -22,8 +22,7 @@ class StartChatBlocConsumerButton extends StatelessWidget {
           showSnackBar(context, message: state.error);
         } else if (state is CreateChatRoomSuccess) {
           log(state.chatId.toString());
-          GoRouter.of(context)
-              .pushReplacement(AppRouter.kchatView, extra: state.chatId);
+          GoRouter.of(context).push(AppRouter.kchatView, extra: state.chatId);
         }
       },
       builder: (context, state) {
