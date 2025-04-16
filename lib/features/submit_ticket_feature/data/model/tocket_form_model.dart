@@ -15,7 +15,7 @@ class TicketFormModel {
       'topic': topicName,
       'ticketNumber': ticketNumber,
       'description': message,
-      'createdAt': DateTime.now().toString(),
+      // 'createdAt': DateTime.now().toString(),
       'chatId': chatId
     };
   }

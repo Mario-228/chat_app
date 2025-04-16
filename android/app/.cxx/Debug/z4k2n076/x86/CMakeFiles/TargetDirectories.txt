@@ -1,0 +1,2 @@
+E:/code Projects/software_cancer/chat_app/android/app/.cxx/Debug/z4k2n076/x86/CMakeFiles/edit_cache.dir
+E:/code Projects/software_cancer/chat_app/android/app/.cxx/Debug/z4k2n076/x86/CMakeFiles/rebuild_cache.dir

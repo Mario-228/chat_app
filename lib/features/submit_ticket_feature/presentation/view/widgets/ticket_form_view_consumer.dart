@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:customer_service_realtime_chat/core/util/app_router/app_router.dart';
 import 'package:customer_service_realtime_chat/core/util/functions/show_snack_bar.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_loading_widget.dart';
@@ -19,7 +21,10 @@ class TicketFormViewConsumer extends StatelessWidget {
           showSnackBar(context, message: state.error);
         } else if (state is TicketFormSuccess) {
           showSnackBar(context, message: "ticket submited successfully");
-          GoRouter.of(context).pushReplacement(AppRouter.kCategoryFormView);
+          FocusScope.of(context).unfocus();
+          Timer(Duration(microseconds: 100), () {
+            GoRouter.of(context).pushReplacement(AppRouter.kCategoryFormView);
+          });
         }
       },
       builder: (context, state) {
