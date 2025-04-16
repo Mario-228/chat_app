@@ -23,7 +23,7 @@ class TicketFormViewConsumer extends StatelessWidget {
           showSnackBar(context, message: "ticket submited successfully");
           FocusScope.of(context).unfocus();
           Timer(Duration(microseconds: 100), () {
-            GoRouter.of(context).pushReplacement(AppRouter.kCategoryFormView);
+            GoRouter.of(context).replace(AppRouter.kCategoryFormView);
           });
         }
       },

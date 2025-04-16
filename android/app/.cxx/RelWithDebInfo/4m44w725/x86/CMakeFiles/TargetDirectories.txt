@@ -1,0 +1,2 @@
+E:/code Projects/software_cancer/chat_app/android/app/.cxx/RelWithDebInfo/4m44w725/x86/CMakeFiles/edit_cache.dir
+E:/code Projects/software_cancer/chat_app/android/app/.cxx/RelWithDebInfo/4m44w725/x86/CMakeFiles/rebuild_cache.dir
