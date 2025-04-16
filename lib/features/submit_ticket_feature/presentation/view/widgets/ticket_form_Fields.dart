@@ -7,10 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 class TicketSubmitFormFields extends StatelessWidget {
-  const TicketSubmitFormFields({
-    super.key,
-  });
+  const TicketSubmitFormFields({super.key, required this.chatID});
 
+  final int chatID;
   @override
   Widget build(BuildContext context) {
     TicketFormCubit.get(context).chatTicketIdController.text = Uuid().v1();
@@ -56,7 +55,9 @@ class TicketSubmitFormFields extends StatelessWidget {
               validator: "please inform us of your feedback",
             ),
             SizedBox(height: 25),
-            TicketFormViewConsumer()
+            TicketFormViewConsumer(
+              chatId: chatID,
+            )
           ],
         ),
       ),

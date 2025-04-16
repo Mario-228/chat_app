@@ -1,3 +1,4 @@
+import 'package:customer_service_realtime_chat/core/util/cache_helper/cache_helper.dart';
 import 'package:customer_service_realtime_chat/core/widgets/custom_appbar.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/widgets/chat_view_body.dart';
 import 'package:customer_service_realtime_chat/features/chat_feature/presentation/views/widgets/ticket_router_action_button.dart';
@@ -12,7 +13,9 @@ class ChatView extends StatelessWidget {
       appBar: CustomAppbar(
         title: "Chat",
         actions: [
-          TicketRouterActionButton(chatId: chatId),
+          CacheHelper.getLoginData().role == "agent"
+              ? TicketRouterActionButton(chatId: chatId)
+              : SizedBox()
         ],
       ),
       body: ChatViewBody(chatId: chatId),

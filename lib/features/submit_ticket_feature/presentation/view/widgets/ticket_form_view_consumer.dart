@@ -9,10 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class TicketFormViewConsumer extends StatelessWidget {
-  const TicketFormViewConsumer({
-    super.key,
-  });
-
+  const TicketFormViewConsumer({super.key, required this.chatId});
+  final int chatId;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TicketFormCubit, TicketFormCubitStates>(
@@ -38,7 +36,7 @@ class TicketFormViewConsumer extends StatelessWidget {
                   //PLACEHOLDER INT DATA
                   //TODO: REPLACE WITH REAL DATA
                   //FIXME:REPLACE WITH REAL DATA
-                  TicketFormCubit.get(context).submitTicket(1);
+                  TicketFormCubit.get(context).submitTicket(chatId);
                 }
               });
         }

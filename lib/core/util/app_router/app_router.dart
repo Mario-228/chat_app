@@ -90,7 +90,9 @@ abstract class AppRouter {
       path: kTicketFormView,
       builder: (context, state) => BlocProvider(
         create: (context) => TicketFormCubit(),
-        child: const TicketFormView(),
+        child: TicketFormView(
+          chatId: state.extra as int,
+        ),
       ),
     ),
   ]);

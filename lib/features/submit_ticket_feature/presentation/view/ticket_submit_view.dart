@@ -3,7 +3,8 @@ import 'package:customer_service_realtime_chat/features/submit_ticket_feature/pr
 import 'package:flutter/material.dart';
 
 class TicketFormView extends StatelessWidget {
-  const TicketFormView({super.key});
+  const TicketFormView({super.key, required this.chatId});
+  final int chatId;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class TicketFormView extends StatelessWidget {
         appBar: CustomAppbar(title: "Ticket Submit"),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: TicketSubmitFormFields(),
+          child: TicketSubmitFormFields(chatID: chatId),
         ));
   }
 }

@@ -20,7 +20,6 @@ class TicketFormCubit extends Cubit<TicketFormCubitStates> {
   void submitTicket(int cahtID) async {
     emit(TicketFormLoading());
     print(TicketFormModel(
-            category: dropDownValue,
             chatId: cahtID,
             message: messageController.text,
             ticketNumber: chatTicketIdController.text,
@@ -28,7 +27,6 @@ class TicketFormCubit extends Cubit<TicketFormCubitStates> {
         .toJson());
     var response = await SubmitTicketRepoExecution().submitTicket(
         tocketFormModel: TicketFormModel(
-            category: dropDownValue,
             chatId: cahtID,
             message: messageController.text,
             ticketNumber: chatTicketIdController.text,
