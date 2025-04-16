@@ -13,7 +13,7 @@ class ChatView extends StatelessWidget {
       appBar: CustomAppbar(
         title: "Chat",
         actions: [
-          CacheHelper.getLoginData().role == "agent"
+          CacheHelper.getLoginData().role == "Agent"
               ? TicketRouterActionButton(chatId: chatId)
               : SizedBox()
         ],

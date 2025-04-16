@@ -26,6 +26,8 @@ class _ChatViewBodyState extends State<ChatViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    print(CacheHelper.getLoginData().role);
+
     stream = SupabaseChattingService.messagesStream(
       "Messages",
       "ChatId",

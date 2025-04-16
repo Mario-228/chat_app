@@ -17,6 +17,7 @@ class SubmitTicketRepoExecution extends SubmitTicketRepo {
           SubmitTicketRepoEndpoint.endPoint,
           tocketFormModel.toJson(),
           CacheHelper.getLoginData().token);
+      print(CacheHelper.getLoginData().token);
       return right(null);
     } on Exception catch (e) {
       if (e is DioException) {

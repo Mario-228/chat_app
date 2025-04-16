@@ -19,7 +19,7 @@ class TicketFormViewConsumer extends StatelessWidget {
           showSnackBar(context, message: state.error);
         } else if (state is TicketFormSuccess) {
           showSnackBar(context, message: "ticket submited successfully");
-          GoRouter.of(context).push(AppRouter.kCategoryFormView);
+          GoRouter.of(context).pushReplacement(AppRouter.kCategoryFormView);
         }
       },
       builder: (context, state) {
@@ -33,9 +33,6 @@ class TicketFormViewConsumer extends StatelessWidget {
                     .formKey
                     .currentState!
                     .validate()) {
-                  //PLACEHOLDER INT DATA
-                  //TODO: REPLACE WITH REAL DATA
-                  //FIXME:REPLACE WITH REAL DATA
                   TicketFormCubit.get(context).submitTicket(chatId);
                 }
               });

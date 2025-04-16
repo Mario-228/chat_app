@@ -44,7 +44,7 @@ class ApiService {
       options: Options(
         headers: {
           'ngrok-skip-browser-warning': 'true',
-          'Authorization': 'Bearer $token'
+          'Authorization': 'Bearer ${token.trim()}'
         },
         contentType: 'application/json',
       ),

@@ -13,10 +13,10 @@ class TicketRouterActionButton extends StatelessWidget {
   final int chatId;
   @override
   Widget build(BuildContext context) {
-    ChattingCubit.get(context).sendMessage(
-        "This session has reached a conclushion,\nIf you need any futher assistance, feel free to start a new caht and we will be glad to help, \n Kind regards, \n Support Team");
     return IconButton(
       onPressed: () async {
+        await ChattingCubit.get(context).sendMessage(
+            "This session has reached a conclushion,\nIf you need any futher assistance, feel free to start a new caht and we will be glad to help, \n Kind regards, \n Support Team");
         var response =
             await ChatRepoImplementation().closeChatRoom(chatId: chatId);
         response.fold(
