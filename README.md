@@ -1,5 +1,4 @@
-readme_content = """
-# 🛎️ Customer Support Realtime Chat App (Flutter)
+## 🛎️ Customer Support Realtime Chat App (Flutter)
 
 This is a Flutter-based mobile application designed to connect users with live customer support agents in real time. The app enables smooth and categorized communication between clients and support teams — ideal for e-commerce platforms, service providers, and more.
 
